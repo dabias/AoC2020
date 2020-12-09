@@ -35,21 +35,25 @@ with open('aoc9.txt') as f:
         contiSet = [int(line)]
         contiSum = int(line)
         i = 0
-        print('Outer loop: ' + line)
+        #print('Outer loop: ' + line)
         #add next number to sum until invalid number is either reached or exeeded
-        for innerLine in f:
-            if i > j:
-            #this prevents adding preceding numbers or itself to the sum
-                contiSet.append(int(innerLine))
-                contiSum += int(innerLine)
-                print('Inner loop: ' + line + " " + str(contiSum))
-            #if sum exeeds the invalid number, this can not be a valid set
-            if contiSum > invalidNum:
-                break
-            #if a valid set is found, find smallest and largest member
-            elif contiSum == invalidNum:
-                contiSet.sort
-                print(contiSet)
-            i += 1
+        with open('aoc9.txt') as g:
+            for innerLine in g:
+                if i > j:
+                    #this prevents adding preceding numbers or itself to the sum
+                    contiSet.append(int(innerLine))
+                    contiSum += int(innerLine)
+                    #print('Inner loop: ' + line + " " + str(contiSum))
+                #if sum exeeds the invalid number, this can not be a valid set
+                if contiSum > invalidNum:
+                    break
+                #if a valid set is found, find smallest and largest member
+                elif (contiSum == invalidNum) and (len(contiSet) > 1):
+                    contiSet.sort()
+                    print(contiSet)
+                    #add smallest and largest number of set(first and last item from sorted list)
+                    weakness = contiSet[0]+contiSet[-1]
+                    print(weakness)
+                i += 1
 
         j += 1
