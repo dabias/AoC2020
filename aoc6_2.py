@@ -6,7 +6,7 @@ with open('aoc6.txt') as f:
     for line in f:
         if (line == "\n"):
             sum += len(checklist)
-            print(len(checklist))
+            #print(len(checklist))
             checklist = []
             firstMember = True
         else:
@@ -21,7 +21,7 @@ with open('aoc6.txt') as f:
                     if char not in line:
                         checklist.remove(char)
 
-print(checklist)
+#print(checklist)
 sum += len(checklist)
 
 print(sum)
